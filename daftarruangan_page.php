@@ -23,20 +23,14 @@
                     <th>Nama Ruangan</th>
                     <th>Lokasi Ruangan</th>
                     <th>Kapasitas Ruangan</th>
-                    <th>Availability</th>
+                    <th>Ketersediaan</th>
+                    <th>Aksi</th>
 
                 </tr>
 
             </thead>
             <tbody> 
-                <tr>
-                    <td>A00000BD</td>
-                    <td>FAPERTA</td>
-                    <td>RK. Gedung Kuliah A</td>
-                    <td>Antara NodeB-D-Exst Ftta, Gedung Faperta</td>
-                    <td>285</td>
-                    <td>t</td>
-                </tr>
+                
                 <?php 
                     while($ruangan = pg_fetch_array($ruangan_query)) {
                         ?>
@@ -48,7 +42,24 @@
                         <td><?php echo $ruangan['ruangan_lokasi']?></td>
                         <td><?php echo $ruangan['ruangan_kapasitas']?></td>
                         <td>
-                            <?php echo $ruangan['bisa_dipinjam']?>
+                            <?php 
+                                $ketersediaan = $ruangan['bisa_dipinjam'];
+                                if ($ketersediaan = 't') {
+                                    echo "Iya";
+                                }
+                                elseif ($ketersediaan == 'f') {
+                                    echo "Tidak";
+                                }
+                            
+                            ?>
+                        </td>
+                        <!-- tombol edit -->
+                        <td> 
+                            <form action= "editruangan_page.php" method="post">
+                                <input type="hidden" name="kode_ruangan" value="<?= $ruangan['kode_ruangan']?>">
+                                <input type="submit" name="editruangan" value="Edit">
+
+                            </form>
                         </td>
                     </tr>
                     <?php
