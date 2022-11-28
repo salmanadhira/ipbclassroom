@@ -1,7 +1,7 @@
 <?php
 include("config.php");
 // cek apakah tombol di form sudah diklik atau belum
-if(isset($_POST["editruangan"])){
+if(isset($_POST['tambahruangan'])){
 
 	// ambil data dari formulir
     $kode_ruangan = $_POST['kode_ruangan'];
@@ -9,7 +9,6 @@ if(isset($_POST["editruangan"])){
     $ruangan_nama = $_POST['ruangan_nama'];
     $ruangan_lokasi = $_POST['ruangan_lokasi'];
     $ruangan_kapasitas = (int)$_POST['ruangan_kapasitas'];
-    var_dump($ruangan_kapasitas);
     $ketersediaan = $_POST['bisa_dipinjam'];
     if ($ketersediaan === 'Iya'){
         $ketersediaan = 'true';
@@ -17,18 +16,16 @@ if(isset($_POST["editruangan"])){
         $ketersediaan = 'false';
     }
 
-    var_dump($kode_ruangan);
-
 	// buat query
-    $query = pg_query("UPDATE ruangan SET kode_ruangan = '$kode_ruangan', ruangan_fakultas = '$ruangan_fakultas', ruangan_nama = '$ruangan_nama', ruangan_lokasi = '$ruangan_lokasi', ruangan_kapasitas = $ruangan_kapasitas, bisa_dipinjam = $ketersediaan WHERE kode_ruangan = '$kode_ruangan'");
+    $query = pg_query("INSERT INTO ruangan (kode_ruangan, ruangan_fakultas, ruangan_nama, ruangan_lokasi, ruangan_kapasitas, bisa_dipinjam) VALUES('$kode_ruangan', '$ruangan_fakultas', '$ruangan_nama', '$ruangan_lokasi', $ruangan_kapasitas, $ketersediaan)");
 
-	//apakah query simpan berhasil? 
+	// apakah query simpan berhasil?
 	if( $query==TRUE ) {
 		// kalau berhasil alihkan ke halaman index.php 
-		header('Location: index.php?status2=editRuanganBerhasil');
+		header('Location: index.php?status5=penambahanRuanganBerhasil');
 	} else {
 		// kalau gagal kembalikan ke halaman form
-		header('Location: editruangan_page.php');
+		header('Location: tambahruangan_page.php');
 	}
 
 

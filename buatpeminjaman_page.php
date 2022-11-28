@@ -18,7 +18,7 @@
 </head>
 <body>
     <header>
-        <h1>Pembuatan Order Peminjaman Ruangan</h1>
+        <h1>Pengajuan Peminjaman Ruangan</h1>
     <header>
     <form action="buatpeminjaman.php" method="post">
         <fieldset>

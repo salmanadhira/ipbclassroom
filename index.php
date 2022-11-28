@@ -1,6 +1,18 @@
 <?php
     if (isset($_GET['status'])) {
-        print($_GET['status']);
+        print("Pengajuan peminjaman ruangan berhasil!");
+    }
+
+    else if (isset($_GET['status2'])) {
+        print("Edit ruangan berhasil!");
+    }
+
+    else if (isset($_GET['status3'])) {
+        print("Penghapusan ruangan berhasil!");
+    }
+
+    else if (isset($_GET['status5'])) {
+        print("Penambahan ruangan baru berhasil!");
     }
 ?>
 
@@ -20,13 +32,16 @@
     <p>
         <h3>User</h3>
         <ul>
+        <li><a href="buatpeminjaman_page.php">Pengajuan Peminjaman Ruangan</a></li> 
+        <li><a href="lihatdaftarruangan_page.php">Lihat Daftar Ruangan</a></li>
+        <li><a href="lihatdaftarpeminjaman_page.php">Lihat Daftar Peminjaman</a></li>
         </ul>
     </p>
     <p>
         <h3>Admin</h3>
         <ul>
-            <li><a href="buatpeminjaman_page.php">Pembuatan Peminjaman Baru</a></li> 
-            <li><a href="daftarruangan_page.php">Daftar Ruangan</a></li>
+            <li><a href="daftarpeminjaman_page.php">Daftar Peminjaman Ruangan Admin</a></li>
+            <li><a href="daftarruangan_page.php">Daftar Ruangan Admin</a></li>
             <li><a href="tambahruangan_page.php">Pendaftaran Ruangan Baru</a></li>
         </ul>
     </p>

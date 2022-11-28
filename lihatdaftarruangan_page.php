@@ -1,6 +1,6 @@
 <?php
     include('config.php');
-    $ruangan_query = pg_query("SELECT * FROM ruangan ORDER BY ruangan_fakultas");
+    $ruangan_query = pg_query("SELECT * FROM ruangan WHERE bisa_dipinjam='t' ORDER BY ruangan_fakultas");
 
     if (isset($_GET['status4'])) {
         print("Penghapusan ruangan gagal!");
@@ -16,7 +16,7 @@
 </head>
 <body>
         <header>
-            <h1>Daftar Ruangan Admin IPB University</h1>
+            <h1>Daftar Ruangan IPB University</h1>
         </header>
         <a href="index.php">Home</a>
         <table border="1">
@@ -28,7 +28,6 @@
                     <th>Lokasi Ruangan</th>
                     <th>Kapasitas Ruangan</th>
                     <th>Ketersediaan</th>
-                    <th>Aksi</th>
 
                 </tr>
 
@@ -57,17 +56,7 @@
                             
                             ?>
                         </td>
-                        <!-- tombol edit -->
-                        <td> 
-                            <form action= "editruangan_page.php" method="post">
-                                <input type="hidden" name="kode_ruangan" value="<?= $ruangan['kode_ruangan']?>">
-                                <input type="submit" name="editruangan" value="Edit">
-
-                            </form>
-                            <form action="deleteruangan.php" method="post">
-                            <input type="hidden" name="kode_ruangan" value="<?= $ruangan['kode_ruangan']?>">
-                            <input type="submit" name="deleteruangan" value="Hapus"/>
-                        </form>
+                        
                         </td>
                     </tr>
                     <?php

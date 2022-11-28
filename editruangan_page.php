@@ -5,6 +5,7 @@
     $ruangan = pg_fetch_array($kode_ruangan_query);
 
     $ruangan_query1 = pg_query("SELECT * FROM ruangan");
+    $fakultas_query = pg_query("SELECT * FROM fakultas");
 ?>
 
 
@@ -23,7 +24,7 @@
 
     <a href="index.php">Homepage</a>
 
-    <form action="editkereta.php" method="post">
+    <form action="editruangan.php" method="post">
         <fieldset>
             <!-- Edit Kode Ruangan -->
             <input type="hidden" value="<?= $ruangan['kode_ruangan']?>" name="kode_ruangan">
@@ -35,14 +36,14 @@
             <!-- Edit Fakultas Ruangan-->
             <input type="hidden" value="<?= $ruangan['ruangan_fakultas']?>" name="ruangan_fakultas">
             <p>
-                <label for="ruangan_fakultas">Fakultas Ruangan :</label>
+            <label for="ruangan_fakultas">Fakultas Ruangan :</label>
                 <select name="ruangan_fakultas" id="">
                 <option value=""></option>
-                <?php while($ruangan_fakultas = pg_fetch_array($ruangan_query1)) {
-                echo "<option value=".$ruangan_fakultas['ruangan_fakultas'].">".$ruangan_fakultas['ruangan_fakultas']."</option>";
-            }
+                <?php while($fakultas = pg_fetch_array($fakultas_query)) {
+                echo "<option value=".$fakultas['fakultas'].">".$fakultas['fakultas']."</option>";
+                }
 
-            ?>
+                ?>
             </select>
             </p>
 
