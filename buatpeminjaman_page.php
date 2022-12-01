@@ -20,18 +20,13 @@
     <header>
         <h1>Pengajuan Peminjaman Ruangan</h1>
     <header>
+    <a href="index_user.php">Home</a>
     <form action="buatpeminjaman.php" method="post">
         <fieldset>
             <!-- Masukan Nama Acara-->
             <p>
                 <label for="nama_acara">Nama Acara  :</label>
                 <input type="text" name="nama_acara" placeholder="Nama acara"   />
-            </p>
-
-            <!-- Masukan Deskripsi Singkat Acara-->
-            <p>
-                <label for="deskripsi_acara">Deskripsi Singkat Acara  :</label>
-                <input type="text" name="deskripsi_acara" placeholder="Deskripsi acara"   />
             </p>
 
             <!-- Pilih Fakultas Ruangan -->
