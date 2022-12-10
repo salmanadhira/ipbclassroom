@@ -35,13 +35,13 @@
                 <?php
                     if ($peminjaman['disetujui']=='t') {
                     ?>
-                        <input type="radio" name="disetujui" value="Iya" checked>Iya</input>
-                        <input type="radio" name="disetujui" value="Tidak">Tidak</input>
+                        <input type="submit" name="disetujui" value="Iya" checked></input>
+                        <input type="submit" name="disetujui" value="Tidak"></input>
                     <?php
                     } elseif ($peminjaman['disetujui']=='f'){
                     ?>
-                        <input type="radio" name="disetujui" value="Iya" >Iya</input>
-                        <input type="radio" name="disetujui" value="Tidak" checked>Tidak</input>
+                        <input type="submit" name="disetujui" value="Iya" ></input>
+                        <input type="submit" name="disetujui" value="Tidak" checked></input>
                     <?php
                     }
                 ?>
